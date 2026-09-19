@@ -13,10 +13,12 @@ import SizeGuide from './pages/SizeGuide'
 import FAQ from './pages/FAQ'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import ThemeEditor from './pages/ThemeEditor'
 
 export default function App() {
   return (
     <Routes>
+      <Route path="/theme-editor" element={<ThemeEditor />} />
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />

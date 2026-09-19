@@ -6,8 +6,6 @@ import { useCart } from '../../context/CartContext'
 export default function ProductCard({ product }) {
   const { addToCart } = useCart()
 
-  // Quick "Add to Cart" from the grid uses the first available size/color.
-  // For a specific size or color, customers use "View Product" instead.
   const handleQuickAdd = (e) => {
     e.preventDefault()
     e.stopPropagation()

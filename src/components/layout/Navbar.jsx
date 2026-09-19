@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, Search, ShoppingBag, X } from 'lucide-react'
 import { useCart } from '../../context/CartContext'
+import { useTheme } from '../../context/ThemeContext'
 import logo from '../../assets/logo.webp'
 
 const navLinks = [
@@ -14,6 +15,8 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { itemCount } = useCart()
+  const { theme } = useTheme()
+  const { sticky, showSearch } = theme.header
 
   const linkClass = ({ isActive }) =>
     `text-sm tracking-wide transition-colors ${
@@ -21,10 +24,10 @@ export default function Navbar() {
     }`
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-cream/95 backdrop-blur">
+    <header className={`${sticky ? 'sticky top-0' : ''} z-40 border-b border-line bg-cream/95 backdrop-blur`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="H&R" className="h-10 w-auto sm:h-12" />
+          <img src={logo} alt={theme.brand.storeName} className="h-10 w-auto sm:h-12" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -36,13 +39,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link
-            to="/shop"
-            aria-label="Search products"
-            className="hidden text-ink-muted transition-colors hover:text-navy sm:block"
-          >
-            <Search size={20} strokeWidth={1.75} />
-          </Link>
+          {showSearch && (
+            <Link
+              to="/shop"
+              aria-label="Search products"
+              className="hidden text-ink-muted transition-colors hover:text-navy sm:block"
+            >
+              <Search size={20} strokeWidth={1.75} />
+            </Link>
+          )}
           <Link to="/cart" aria-label="View cart" className="relative text-ink-muted transition-colors hover:text-navy">
             <ShoppingBag size={20} strokeWidth={1.75} />
             {itemCount > 0 && (

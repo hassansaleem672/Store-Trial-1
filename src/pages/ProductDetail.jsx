@@ -5,6 +5,7 @@ import { products } from '../data/products'
 import { formatPKR } from '../lib/whatsapp'
 import { useCart } from '../context/CartContext'
 import ProductCard from '../components/product/ProductCard'
+import Button from '../components/ui/Button'
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -152,19 +153,13 @@ export default function ProductDetail() {
 
           {/* Actions */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button
-              onClick={handleAddToCart}
-              className="flex flex-1 items-center justify-center gap-2 border border-navy px-6 py-3 text-sm font-semibold tracking-wide text-navy transition-colors hover:bg-navy hover:text-cream"
-            >
+            <Button tone="secondary" onClick={handleAddToCart} className="flex-1">
               <ShoppingBag size={18} />
               {added ? 'Added to Cart' : 'Add to Cart'}
-            </button>
-            <button
-              onClick={handleBuyNow}
-              className="flex-1 bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-white transition-colors hover:bg-gold-light"
-            >
+            </Button>
+            <Button onClick={handleBuyNow} className="flex-1">
               Buy Now
-            </button>
+            </Button>
           </div>
 
           {!product.inStock && (
