@@ -7,6 +7,12 @@ import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Shipping from './pages/Shipping'
+import Returns from './pages/Returns'
+import SizeGuide from './pages/SizeGuide'
+import FAQ from './pages/FAQ'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 export default function App() {
   return (
@@ -19,6 +25,12 @@ export default function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/returns" element={<Returns />} />
+        <Route path="/size-guide" element={<SizeGuide />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Route>
     </Routes>
   )

@@ -1,12 +1,19 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { products, categories } from '../data/products'
 import ProductCard from '../components/product/ProductCard'
 
 export default function Home() {
   const featured = products.slice(0, 4)
+  const location = useLocation()
+  const orderPlaced = location.state?.orderPlaced
 
   return (
     <div>
+      {orderPlaced && (
+        <div className="bg-gold px-4 py-3 text-center text-sm font-medium text-white">
+          Thank you! Your order details have been sent on WhatsApp — we'll confirm shortly.
+        </div>
+      )}
       {/* Hero */}
       <section className="bg-navy text-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-2 md:py-28">

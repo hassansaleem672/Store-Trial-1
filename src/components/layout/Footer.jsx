@@ -6,7 +6,7 @@ import { WHATSAPP_NUMBER } from '../../lib/whatsapp'
 export default function Footer() {
   return (
     <footer className="mt-24 border-t border-line bg-navy text-cream">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <img src={logo} alt="H&R" className="h-10 w-auto brightness-0 invert" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/70">
@@ -28,6 +28,8 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-cream/70">
             <li><Link to="/about" className="hover:text-gold-light">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-gold-light">Contact</Link></li>
+            <li><Link to="/size-guide" className="hover:text-gold-light">Size Guide</Link></li>
+            <li><Link to="/faq" className="hover:text-gold-light">FAQ</Link></li>
             <li>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -38,6 +40,16 @@ export default function Footer() {
                 <MessageCircle size={16} /> 0303 3348598
               </a>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-display text-lg">Policies</h3>
+          <ul className="mt-4 space-y-2 text-sm text-cream/70">
+            <li><Link to="/shipping" className="hover:text-gold-light">Shipping Information</Link></li>
+            <li><Link to="/returns" className="hover:text-gold-light">Returns &amp; Exchanges</Link></li>
+            <li><Link to="/privacy" className="hover:text-gold-light">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="hover:text-gold-light">Terms &amp; Conditions</Link></li>
           </ul>
         </div>
       </div>
